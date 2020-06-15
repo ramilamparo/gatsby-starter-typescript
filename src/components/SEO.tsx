@@ -19,7 +19,7 @@ interface SEOStaticQuery {
 	};
 }
 
-export default ({
+export const SEO = ({
 	description = "",
 	lang = "en",
 	meta = [],

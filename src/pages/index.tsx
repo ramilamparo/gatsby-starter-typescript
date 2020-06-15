@@ -1,39 +1,39 @@
-import React from "react"
-import { css } from "@emotion/core"
-import { Link, graphql } from "gatsby"
-import Layout from "../components/Layout"
-import SEO from "../components/SEO"
+import React from "react";
+import { css } from "@emotion/core";
+import { Link, graphql } from "gatsby";
+import { BaseLayout } from "../components/BaseLayout";
+import { SEO } from "../components/SEO";
 
 interface HomeProps {
 	data: {
 		allMarkdownRemark: {
-			totalCount: number
+			totalCount: number;
 			edges: Array<{
 				node: {
-					id: string
+					id: string;
 					frontmatter: {
-						title: string
-						date: string
-					}
+						title: string;
+						date: string;
+					};
 					fields: {
-						slugField: string
-					}
-					excerpt: string
-				}
-			}>
-		}
+						slugField: string;
+					};
+					excerpt: string;
+				};
+			}>;
+		};
 		site: {
 			siteMetadata: {
-				title: string
-				description: string
-			}
-		}
-	}
+				title: string;
+				description: string;
+			};
+		};
+	};
 }
 
 export default ({ data }: HomeProps) => {
 	return (
-		<Layout>
+		<BaseLayout>
 			<SEO
 				title={data.site.siteMetadata.title}
 				description={data.site.siteMetadata.description}
@@ -70,9 +70,9 @@ export default ({ data }: HomeProps) => {
 					</div>
 				))}
 			</div>
-		</Layout>
-	)
-}
+		</BaseLayout>
+	);
+};
 
 export const query = graphql`
 	query {
@@ -99,4 +99,4 @@ export const query = graphql`
 			}
 		}
 	}
-`
+`;

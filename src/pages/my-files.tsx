@@ -1,25 +1,25 @@
-import React, { ReactElement } from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/Layout"
+import React, { ReactElement } from "react";
+import { graphql } from "gatsby";
+import { BaseLayout } from "../components/BaseLayout";
 
 export interface MyFilesProps {
 	data: {
 		allFile: {
 			edges: Array<{
 				node: {
-					relativePath: string
-					prettySize: string
-					extension: string
-					birthTime: string
-				}
-			}>
-		}
-	}
+					relativePath: string;
+					prettySize: string;
+					extension: string;
+					birthTime: string;
+				};
+			}>;
+		};
+	};
 }
 
 export default ({ data }: MyFilesProps): ReactElement => {
 	return (
-		<Layout>
+		<BaseLayout>
 			<div>
 				<h1>My Site's Files</h1>
 				<table>
@@ -43,9 +43,9 @@ export default ({ data }: MyFilesProps): ReactElement => {
 					</tbody>
 				</table>
 			</div>
-		</Layout>
-	)
-}
+		</BaseLayout>
+	);
+};
 
 export const query = graphql`
 	query {
@@ -60,4 +60,4 @@ export const query = graphql`
 			}
 		}
 	}
-`
+`;
